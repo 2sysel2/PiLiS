@@ -5,11 +5,12 @@
     <artifactId>PiLiS</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <parent>
+        <artifactId>PiLiSParent</artifactId>
+        <groupId>technology.sys</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
         <!-- DEFAULT RASPBERRY PI PROPERTIES -->
         <pi.host>192.168.1.112</pi.host>
         <pi.port>22</pi.port>
@@ -18,18 +19,6 @@
         <pi.deployDirectory>/home/pi/artifacts</pi.deployDirectory>
         <pi.main.class>technology.sys.pilis.Main</pi.main.class>
     </properties>
-    <repositories>
-        <repository>
-            <id>sonatype-oss-public</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
@@ -55,19 +44,8 @@
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
         <dependency>
             <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf-spring4</artifactId>
+            <artifactId>thymeleaf-spring5</artifactId>
             <version>3.0.9.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.11.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.11.0</version>
         </dependency>
 
         <dependency>
