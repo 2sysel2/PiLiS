@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PiLiS</title>
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+
+    </head>
+    <body>
+        <div class="buttons">
+            <span th:each="button : ${buttons}">
+                <a th:href="${button.path}" class="button"><span th:text="${button.name}" th:remove="tag"/></a>
+                <br/>
+            </span>
+        </div>
+        <div>
+            <div class="info">
+                PID: [<span th:text="${info.processId}" th:remove="tag"/>]</br>
+                User directory: [<span th:text="${info.directory}" th:remove="tag"/>]</br>
+                Current time: [<span th:text="${info.time}" th:remove="tag"/>]</br>
+                Current date: [<span th:text="${info.date}" th:remove="tag"/>]</br>
+                </br>
+                <div class="light" th:each="light : ${info.lights}">
+                    Light [<span th:text="${light.name}" th:remove="tag"/>]
+                    is currently [<span th:text="${light.state}" th:remove="tag"/>]
+                    - [<span th:text="${light.pinName}" th:remove="tag"/>]@[<span th:text="${light.controllerIp}" th:remove="tag"/>]
+                    <br/>
+
+                    <span th:each="button : ${buttons}">
+                        <a th:href="@{${button.path}+'/'+${light.name}}" class="button_small"><span th:text="${button.name}" th:remove="tag"/></a>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

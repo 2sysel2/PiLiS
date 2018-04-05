@@ -1,0 +1,134 @@
+h1{
+    color:#0000FF;
+}
+
+h2{
+    color:#FF0000;
+}
+
+footer{
+    margin-top:60px;
+}
+body{
+    background-color:gray;
+}
+
+.button {
+    -moz-box-shadow: inset 0px 1px 0px -50px #000000;
+    -webkit-box-shadow: inset 0px 1px 0px -50px #000000;
+    box-shadow: inset 0px 1px 0px -50px #000000;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #95d448), color-stop(1, #95d448));
+    background: -moz-linear-gradient(center top, #95d448 5%, #95d448 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#95d448', endColorstr='#95d448');
+    background-color: #95d448;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-bottom-left-radius: 0px;
+    text-indent: 0;
+    border: 2px solid #000000;
+    display: inline-block;
+    color: #000000;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    height: 71px;
+    line-height: 71px;
+    width: 260px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button_small {
+    -moz-box-shadow: inset 0px 1px 0px -50px #000000;
+    -webkit-box-shadow: inset 0px 1px 0px -50px #000000;
+    box-shadow: inset 0px 1px 0px -50px #000000;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #95d448), color-stop(1, #95d448));
+    background: -moz-linear-gradient(center top, #95d448 5%, #95d448 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#95d448', endColorstr='#95d448');
+    background-color: #95d448;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-bottom-left-radius: 0px;
+    text-indent: 0;
+    border: 1px solid #000000;
+    display: inline-block;
+    color: #000000;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    padding:5px;
+}
+
+.button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #95d448), color-stop(1, #95d448));
+    background: -moz-linear-gradient(center top, #95d448 5%, #95d448 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#95d448', endColorstr='#95d448');
+    background-color: #95d448;
+}
+
+.button:active {
+    position: relative;
+    top: 1px;
+}
+
+.info {
+    -moz-box-shadow:inset 0px 1px 0px -50px #000000;
+    -webkit-box-shadow:inset 0px 1px 0px -50px #000000;
+    box-shadow:inset 0px 1px 0px -50px #000000;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #95d448), color-stop(1, #95d448) );
+    background:-moz-linear-gradient( center top, #95d448 5%, #95d448 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#95d448', endColorstr='#95d448');
+    background-color:#95d448;
+    -webkit-border-top-left-radius:0px;
+    -moz-border-radius-topleft:0px;
+    border-top-left-radius:0px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:0px;
+    -moz-border-radius-bottomright:0px;
+    border-bottom-right-radius:0px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;text-indent:0;
+    border:2px solid #000000;
+    display:inline-block;
+    color:#000000;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    text-align:center;
+    padding:20px;
+    width: auto;
+}
+.light{
+    border:2px solid #000000;
+    padding: 5px;
+}
+.buttons{
+    float:left;
+}
