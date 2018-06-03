@@ -1,12 +1,19 @@
 package technology.sys.pilis;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,12 +43,13 @@ import technology.sys.pilis.interfaces.ILightControllerPlugin;
 public class LightController
 {
 
-    private static final Logger LOG = LogManager.getLogger(LightController.class);
+    private static final Logger LOG = LogManager
+            .getLogger(LightController.class);
 
     @Autowired
     private ILightControllerPlugin lightControllerPlugin;
 
-    private final List<Light> lights = new ArrayList();
+    private final List<Light> lights = new ArrayList<Light>();
 
     @RequestMapping(value =
     {
@@ -51,40 +59,35 @@ public class LightController
     {
         if (!StringUtils.isEmpty(lightName))
         {
-            lights
-                    .stream()
-                    .filter(light -> light.getName().equals(lightName))
+            lights.stream().filter(light -> light.getName().equals(lightName))
                     .forEach(light -> lightControllerPlugin.turnOn(light));
         }
         else
         {
-            lights
-                    .stream()
+            lights.stream()
                     .forEach(light -> lightControllerPlugin.turnOn(light));
         }
-        return getRedirectView("info");
+        return getRedirectView("/pilis/info");
     }
 
     @RequestMapping(value =
     {
         "/pilis/turnOff", "/pilis/turnOff/{lightName}"
     })
-    RedirectView turnOff(RedirectAttributes attributes, @PathVariable(required = false) String lightName)
+    RedirectView turnOff(RedirectAttributes attributes,
+            @PathVariable(required = false) String lightName)
     {
         if (!StringUtils.isEmpty(lightName))
         {
-            lights
-                    .stream()
-                    .filter(light -> light.getName().equals(lightName))
+            lights.stream().filter(light -> light.getName().equals(lightName))
                     .forEach(light -> lightControllerPlugin.turnOff(light));
         }
         else
         {
-            lights
-                    .stream()
+            lights.stream()
                     .forEach((light) -> lightControllerPlugin.turnOff(light));
         }
-        return getRedirectView("info");
+        return getRedirectView("/pilis/info");
     }
 
     @RequestMapping(value =
@@ -95,27 +98,22 @@ public class LightController
     {
         if (!StringUtils.isEmpty(lightName))
         {
-            lights
-                    .stream()
-                    .filter(light -> light.getName().equals(lightName))
+            lights.stream().filter(light -> light.getName().equals(lightName))
                     .forEach(light -> lightControllerPlugin.toggle(light));
         }
         else
         {
-            lights
-                    .stream()
+            lights.stream()
                     .forEach((light) -> lightControllerPlugin.toggle(light));
         }
-        return getRedirectView("info");
+        return getRedirectView("/pilis/info");
     }
 
     @PostConstruct
     void init()
     {
         LOG.info("Initializing PiLiS");
-        lights.add(new Light("testLight", "GPIO 0", "localhost"));
-        lights.add(new Light("light2", "GPIO 10", "localhost"));
-
+        initLights();
         lights.stream().forEach(light -> LOG.info("Light[{}]", light));
     }
 
@@ -163,5 +161,31 @@ public class LightController
         RedirectView rv = new RedirectView();
         rv.setUrl(redirectAdress);
         return rv;
+    }
+
+    private void initLights()
+    {
+        File config = new File("lights.json");
+        try
+        {
+            Gson gson = new GsonBuilder().create();
+            if (config.exists())
+            {
+                String json = FileUtils.readFileToString(config, StandardCharsets.UTF_8);
+                lights.addAll(gson.fromJson(json, new TypeToken<List<Light>>()
+                {
+                }.getType()));
+            }
+            else
+            {
+                lights.add(new Light("Light", "GPIO 0", "localhost"));
+                String json = gson.toJson(lights);
+                FileUtils.write(config, json, StandardCharsets.UTF_8);
+            }
+        }
+        catch (IOException ex)
+        {
+
+        }
     }
 }
