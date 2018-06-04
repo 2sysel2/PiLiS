@@ -11,9 +11,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <modules>
+    	<module>PiLiSCommon</module>
+    	<module>PiReC</module>
         <module>PiLiS</module>
-        <module>PiReC</module>
-        <module>PiLiSCommon</module>
     </modules>
 
     <repositories>

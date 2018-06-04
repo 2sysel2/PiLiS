@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>technology.sys</groupId>
-			<artifactId>PiLiS-Common</artifactId>
+			<artifactId>PiLiSCommon</artifactId>
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
