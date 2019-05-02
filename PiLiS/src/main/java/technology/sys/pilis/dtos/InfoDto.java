@@ -16,7 +16,7 @@ public class InfoDto
     private String directory;
     private LocalTime time;
     private LocalDate date;
-    private List<Light> lights;
+    private List<LightDto> lights;
 
     public InfoDto()
     {
@@ -62,12 +62,12 @@ public class InfoDto
         this.date = date;
     }
 
-    public List<Light> getLights()
+    public List<LightDto> getLights()
     {
         return lights;
     }
 
-    public void setLights(List<Light> lights)
+    public void setLights(List<LightDto> lights)
     {
         this.lights = lights;
     }

@@ -27,7 +27,7 @@ public class XmlHelper
         {
             JAXBContext jaxbContext = JAXBContext.newInstance(GpioRequest.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
             StringWriter stringWriter = new StringWriter();
             marshaller.marshal(request, stringWriter);
             result = stringWriter.toString();
@@ -68,7 +68,7 @@ public class XmlHelper
         {
             JAXBContext jaxbContext = JAXBContext.newInstance(GpioResponse.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
             StringWriter stringWriter = new StringWriter();
             marshaller.marshal(response, stringWriter);
             result = stringWriter.toString();

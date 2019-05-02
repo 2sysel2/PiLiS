@@ -1,5 +1,7 @@
 package technology.sys.pirec;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
@@ -105,6 +107,7 @@ public class GpioHelper {
 
 		GpioResponse response = new GpioResponse();
 		response.setPinMap(getPinStateMap());
+		response.setControllerIp(request.getControllerIp());
 		return response;
 	}
 

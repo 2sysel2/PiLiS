@@ -1,35 +1,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>PiLiS</title>
-        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+<head>
+    <title>PiLiS</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
 
-    </head>
-    <body>
-        <div class="buttons">
-            <span th:each="button : ${buttons}">
-                <a th:href="${button.path}" class="button"><span th:text="${button.name}" th:remove="tag"/></a>
-                <br/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body class="bg-secondary">
+
+<div class="jumbotron text-center" id="jumbo">
+    <h4>PID: [<span th:text="${info.processId}" th:remove="tag"/>]</br></h4>
+    <!--h1>User directory: [<span th:text="${info.directory}" th:remove="tag"/>]</br></h1-->
+    <h4>Current time: [<span th:text="${info.time}" th:remove="tag"/>]</br></h4>
+    <h4>Current date: [<span th:text="${info.date}" th:remove="tag"/>]</br></h4>
+</div>
+<div class="container text-white">
+    <div class="col-sm-12">
+            <span th:each="button : ${buttons}" class="row">
+                <a th:href="${button.path}" class="btn btn-dark btn-lg btn-block spaced-button" th:text="${button.name}"></a>
             </span>
-        </div>
-        <div>
-            <div class="info">
-                PID: [<span th:text="${info.processId}" th:remove="tag"/>]</br>
-                User directory: [<span th:text="${info.directory}" th:remove="tag"/>]</br>
-                Current time: [<span th:text="${info.time}" th:remove="tag"/>]</br>
-                Current date: [<span th:text="${info.date}" th:remove="tag"/>]</br>
-                </br>
-                <div class="light" th:each="light : ${info.lights}">
-                    Light [<span th:text="${light.name}" th:remove="tag"/>]
-                    is currently [<span th:text="${light.state}" th:remove="tag"/>]
-                    - [<span th:text="${light.pinName}" th:remove="tag"/>]@[<span th:text="${light.controllerIp}" th:remove="tag"/>]
-                    <br/>
+    </div>
 
-                    <span th:each="button : ${buttons}">
-                        <a th:href="@{${button.path}+'/'+${light.name}}" class="button_small"><span th:text="${button.name}" th:remove="tag"/></a>
-                    </span>
-
+    <div class="col-sm-12">
+        <fieldset class="border" th:each="lightDto : ${info.lights}">
+            <legend class="legend">
+                <span th:text="${lightDto.light.name}" th:remove="tag"/> - <span th:text="${lightDto.light.state}" th:remove="tag"/>@<span th:text="${lightDto.light.controllerIp}" th:remove="tag"/>
+            </legend>
+            <div class="spaced-button-group">
+                <div class="btn-group">
+                    <a th:each="button : ${lightDto.buttons}" th:href="${button.path}" class="btn btn-dark padded-button" th:text="${button.name}"/>
                 </div>
             </div>
-        </div>
-    </body>
+        </fieldset>
+    </div>
+</div>
+</body>
 </html>

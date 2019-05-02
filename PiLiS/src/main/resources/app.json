@@ -1,0 +1,24 @@
+{
+  "$jason": {
+    "head": {
+      "title": "PiLiS",
+      "actions": {
+        "$foreground": {
+          "type": "$reload"
+        }
+      }
+    },
+    "body": {
+      "style": {
+        "background": {
+          "type": "html",
+          "url": "http://192.168.1.101:8080/pilis/info",
+          "action": {
+            "type": "$default"
+          }
+        },
+        "border": "none"
+      }
+    }
+  }
+}

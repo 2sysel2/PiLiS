@@ -13,15 +13,17 @@ public class GpioRequest
 
     private Action action;
     private String gpioPin;
+    private String controllerIp;
 
     public GpioRequest()
     {
     }
 
-    public GpioRequest(Action action, String gpioPin)
+    public GpioRequest(Action action, String gpioPin,String controllerIp)
     {
         this.action = action;
         this.gpioPin = gpioPin;
+        this.controllerIp = controllerIp;
     }
 
     public Action getAction()
@@ -46,4 +48,11 @@ public class GpioRequest
         this.gpioPin = gpioPin;
     }
 
+    public String getControllerIp() {
+        return controllerIp;
+    }
+    @XmlElement
+    public void setControllerIp(String controllerIp) {
+        this.controllerIp = controllerIp;
+    }
 }
