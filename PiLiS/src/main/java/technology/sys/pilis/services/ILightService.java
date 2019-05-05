@@ -1,4 +1,4 @@
-package technology.sys.pilis.interfaces;
+package technology.sys.pilis.services;
 
 import technology.sys.pilis.comon.GpioResponse;
 import technology.sys.pilis.entities.Light;
@@ -9,17 +9,15 @@ import java.util.Collection;
  *
  * @author Jaromir Sys
  */
-public interface ILightControllerPlugin {
+public interface ILightService {
 
-    void turnOn(Light light);
+    void turnOn(String lightName);
 
-    void turnOff(Light light);
+    void turnOff(String lightName);
 
-    void toggle(Light light);
+    void toggle(String lightName);
 
     void applyStatesFromResponse(GpioResponse response);
-
-    void addLight(Light light);
 
     Collection<Light> getLights();
 }

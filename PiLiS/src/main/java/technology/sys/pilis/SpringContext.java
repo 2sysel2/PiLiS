@@ -1,4 +1,4 @@
-package technology.sys.pilis.plugins;
+package technology.sys.pilis;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -13,8 +13,6 @@ public class SpringContext implements ApplicationContextAware {
     /**
      * Returns the Spring managed bean instance of the given class type (if it exists).
      * Returns null otherwise.
-     * @param beanClass
-     * @return
      */
     public static <T extends Object> T getBean(Class<T> beanClass) {
         return context.getBean(beanClass);

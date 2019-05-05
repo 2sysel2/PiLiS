@@ -65,3 +65,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#Idea
+.idea
+*.iml
+
+lights.json
+pid.txt

@@ -1,5 +1,6 @@
 #jumbo{
     margin-bottom:0rem;
+    background-color: black;
 }
 
 .legend{
@@ -16,4 +17,8 @@
 .spaced-button-group{
     margin-bottom: 1rem;
     margin-left: 1rem;
+}
+
+.bg-black{
+    background-color: black;
 }
